@@ -1,0 +1,188 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+
+    --primary: 209 98% 51%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+
+    --radius: 0.5rem;
+
+    --grey-shade-1: 106 108 119;
+    --grey-shade-2: 137 140 151;
+  
+    --primary-shade-1: 2 108 207;
+    --primary-shade-2: 48 154 253;
+    --primary-shade-3: 88 174 254;
+    --primary-shade-4: 128 194 254;
+    --primary-shade-5: 169 213 254;
+    --primary-shade-6: 235 245 255;
+  
+    --alert-orange: 255 97 75;
+  
+    --accent-orange: 255 138 75;
+    --accent-purple: 133 75 255;
+    --accent-green: 6 218 167;
+    --accent-yellow: 255 183 75;
+    --accent-red: 255 75 75;
+    --accent-blue: 75 169 255;
+    --accent-blue-2: 42 116 202;
+  
+    --green-online: 21 178 74;
+    --green-reaction: 42 202 193;
+  
+    --username-blue: 42 202 193;
+    --username-green: 35 169 161;
+  
+    --scroll-bar-stick: 161 163 178;
+  
+    --premium: 255 210 70;
+  
+    --background-shade: rgba(106, 108, 119, 0.06);
+
+    --whole-bg: 240 12% 96%;
+  
+    --dark-background-shade: rgba(106, 108, 119, 0.06);
+    --dark-background-shade-2: rgba(47, 50, 55, 1);
+  
+    --buy-signal: rgba(42, 202, 193, 1);
+    --sell-signal: rgba(255, 97, 75, 1);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --background: 0 0% 100%;
+      --foreground: 0 0% 3.9%;
+  
+      --card: 0 0% 100%;
+      --card-foreground: 0 0% 3.9%;
+  
+      --popover: 0 0% 100%;
+      --popover-foreground: 0 0% 3.9%;
+  
+      --primary: 209 98% 51%;
+      --primary-foreground: 0 0% 98%;
+  
+      --secondary: 0 0% 96.1%;
+      --secondary-foreground: 0 0% 9%;
+  
+      --muted: 0 0% 96.1%;
+      --muted-foreground: 0 0% 45.1%;
+  
+      --accent: 0 0% 96.1%;
+      --accent-foreground: 0 0% 9%;
+  
+      --destructive: 0 84.2% 60.2%;
+      --destructive-foreground: 0 0% 98%;
+  
+      --border: 0 0% 89.8%;
+      --input: 0 0% 89.8%;
+      --ring: 0 0% 3.9%;
+  
+      --radius: 0.5rem;
+
+      --grey-shade-1: 106 108% 119%;
+      --grey-shade-2: 137 140% 151%;
+    
+      --primary-shade-1: 2 108% 207%;
+      --primary-shade-2: 48 154% 253%;
+      --primary-shade-3: 88 174% 254%;
+      --primary-shade-4: 128 194% 254%;
+      --primary-shade-5: 169 213% 254%;
+      --primary-shade-6: 235 245% 255%;
+    
+      --alert-orange: 255 97% 75%;
+    
+      --accent-orange: 255 138% 75%;
+      --accent-purple: 133 75% 255%;
+      --accent-green: 6 218% 167%;
+      --accent-yellow: 255 183% 75%;
+      --accent-red: 255 75% 75%;
+      --accent-blue: 75 169% 255%;
+      --accent-blue-2: 42 116% 202%;
+    
+      --green-online: 21 178% 74%;
+      --green-reaction: 42 202% 193%;
+    
+      --username-blue: 42 202% 193%;
+      --username-green: 35 169% 161%;
+    
+      --scroll-bar-stick: 161 163% 178%;
+    
+      --premium: 255 210% 70%;
+    
+      --whole-bg: 240 12% 96%;
+
+      --background-shade: rgba(106, 108, 119, 0.06);
+    
+      --dark-background-shade: rgba(106, 108, 119, 0.06);
+      --dark-background-shade-2: rgba(47, 50, 55, 1);
+    
+      --buy-signal: rgba(42, 202, 193, 1);
+      --sell-signal: rgba(255, 97, 75, 1);
+    }
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+.shimmer {
+  background: linear-gradient(-45deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 400% 400%;
+  animation: shimmer-animation 1.5s infinite linear;
+}
+
+.rdp-vhidden {
+  @apply hidden;
+}
+
+@keyframes shimmer-animation {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
+}

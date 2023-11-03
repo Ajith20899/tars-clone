@@ -1,0 +1,7 @@
+.nav-icon path {
+    transition: .3s fill;
+}
+
+.nav-icon:hover path {
+    fill: hsl(var(--primary));
+}
