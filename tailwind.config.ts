@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  darkMode: ["class"],
+  darkMode: ["media"],
+  
   content: [
     './pages/**/*.{ts,tsx}',
     './components/**/*.{ts,tsx}',
@@ -29,26 +30,13 @@ module.exports = {
     },
     extend: {
       colors: {
-        border: "hsl(var(--border))",
-        input: "hsl(var(--input))",
-        ring: "hsl(var(--ring))",
+        primary: "hsl(var(--primary))",
+        textPrimary: "hsl(var(--textPrimary))",
+        textSecondary: "hsl(var(--textSecondary))",
         background: "hsl(var(--background))",
-        foreground: "hsl(var(--foreground))",
-        whole: {
-          bg: "hsl(var(--whole-bg))"
-        },
-        primary: {
-          DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
-          shade1: "hsl(var(--primary-shade-1))",
-          shade2: "hsl(var(--primary-shade-2))",
-          shade3: "hsl(var(--primary-shade-3))",
-          shade4: "hsl(var(--primary-shade-4))",
-          shade5: "hsl(var(--primary-shade-5))",
-          shade6: "hsl(var(--primary-shade-6))",
-        },
-        grayShade1: "hsl(var(--grey-shade-1))",
-        grayShade2: "hsl(var(--grey-shade-2))",
+        backgroundShade: "hsl(var(--backgroundShade))",
+        borderColor: "hsl(var(--border))",
+
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
           foreground: "hsl(var(--secondary-foreground))",
@@ -73,10 +61,6 @@ module.exports = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-      },
-      borderRadius: {
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
       },
       keyframes: {
         "accordion-down": {

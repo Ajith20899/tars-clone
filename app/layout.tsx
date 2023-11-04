@@ -28,7 +28,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="h-full w-full bg-[#F4F4F6] grid grid-cols-[3rem_1fr] p-3 md:block">
+          <div className="h-full w-full grid grid-cols-[3rem_1fr] p-3 md:grid-cols-[0fr_1fr]">
             <NavBar />
             {children}
           </div>
