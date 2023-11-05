@@ -1,0 +1,10 @@
+.profile-category:hover label {
+    color: hsl(var(--primary));
+    font-weight: 500;
+    transition: .3s color;
+}
+
+.profile-category:hover > svg {
+    stroke: hsl(var(--primary));
+    transition: .3s stroke;
+}

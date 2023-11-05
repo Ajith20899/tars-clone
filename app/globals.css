@@ -27,7 +27,7 @@ body {
       --popover: 0 0% 100%;
       --popover-foreground: 0 0% 3.9%;
   
-      --primary: 209 98% 51%;
+      --primary: 201.47deg 76% 49.02%;
       --primary-foreground: 0 0% 98%;
   
       --secondary: 233 10% 66%;
@@ -60,7 +60,7 @@ body {
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 3.9%;
 
-    --primary: 209 98% 51%;
+    --primary: 201.47deg 76% 49.02%;
     --primary-foreground: 0 0% 98%;
 
     --secondary: 233 10% 66%;
@@ -77,7 +77,8 @@ body {
 
     --radius: 0.5rem;
 
-    --border: 0 0% 30.2%;
+    --border: 255 8% 90%;
+    --lightBorder: 0 0% 94.18%;
 
     --grey-shade-1: 106 108 119;
     --grey-shade-2: 137 140 151;
@@ -125,18 +126,19 @@ body {
     --textSecondary: 0 0% 61.57%;
 
     --background: 0 0% 0%;
-    --backgroundShade: 240 10% 96%;
+    --backgroundShade: 199.2 86.21% 5.69%;
     --foreground: 0 0% 3.9%;
 
     --border: 0 0% 30.2%;
+    --lightBorder: 0deg 0% 14.9%;
 
     --card: 0 0% 100%;
     --card-foreground: 0 0% 3.9%;
 
-    --popover: 0 0% 100%;
+    --popover: 0 0% 0%;
     --popover-foreground: 0 0% 3.9%;
 
-    --primary: 209 98% 51%;
+    --primary: 201.47deg 76% 49.02%;
     --primary-foreground: 0 0% 98%;
 
     --secondary: 233 10% 66%;
@@ -175,7 +177,6 @@ body {
   @apply hidden;
 }
 
-
 @keyframes shimmer-animation {
   0% {
     background-position: 100% 0;
@@ -183,4 +184,17 @@ body {
   100% {
     background-position: -100% 0;
   }
+}
+
+@media (max-width: 767px) {
+  div[role="dialog"] {
+    pointer-events: auto;
+    position: fixed;
+    bottom: 0px;
+    transform: translate(0);
+    left: 0px;
+    border: none;
+    background: hsl(var(--backgroundShade));
+    border-radius: 10px 10px 0px 0px;
+  } 
 }

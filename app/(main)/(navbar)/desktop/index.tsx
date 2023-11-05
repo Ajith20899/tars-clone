@@ -1,17 +1,17 @@
 
 import React from "react";
 
-import ImageFallBack from "@/library/image";
+import ImageFallBack from "@/app/_library/image";
 
 import NavCategories from "./navCategories";
 
 export default function NavbarDesktop() {
   return (
-    <nav className="rounded-full bg-background py-3 px-2">
+    <nav className="px-2 py-3 rounded-full bg-background">
       <ImageFallBack 
         src={'/udc.svg'}
         alt="udc"
-        className="w-full h-7 py-2"
+        className="w-full py-2 h-7"
       />
       <NavCategories />
     </nav>

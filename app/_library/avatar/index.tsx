@@ -2,7 +2,9 @@
 
 import React, { useEffect, useRef, useState } from "react";
 
-import ImageFallBack from "@/library/image";
+import { PenSquare } from "lucide-react";
+
+import ImageFallBack from "@/app/_library/image";
 import { cn } from "@/lib/utils";
 
 import { useIsMobile } from "@/hooks/useIsMobile";
@@ -15,6 +17,8 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+
+import { GoogleSpinner } from "@/app/_library/loader";
 
 interface IAvatarEditProps {
   url: string;
@@ -57,7 +61,7 @@ export default function AvatarEdit(props: IAvatarEditProps) {
   const uploadImageHandler = (
     e: React.MouseEvent<HTMLImageElement, MouseEvent>
   ) => {
-    e.preventDefault();
+    // e.preventDefault();
     let input = document.createElement("input");
     if (!input) return;
 
@@ -73,40 +77,37 @@ export default function AvatarEdit(props: IAvatarEditProps) {
     input.click();
   };
 
-  const removeImageHandler = (
-    e: React.MouseEvent<HTMLImageElement, MouseEvent>
-  ) => {
-    setLocalUrl(localUrl);
+  const removeImageHandler = () => {
+    setLocalUrl("");
     imageHandler();
-    e.preventDefault();
   };
 
   return (
-    <div className={cn(className)}>
+    <div className={cn(className, "relative")}>
       {!!localUrl?.length ? (
         <ImageFallBack
           src={localUrl}
           alt=""
           priority
           loading={"eager"}
-          className="w-20 h-20"
+          className="w-20 h-20 overflow-hidden rounded-full"
         />
       ) : (
         <ImageFallBack
-          src={"/icons/upload-image.svg"}
+          src={"/upload_image.svg"}
           alt=""
           onClick={uploadImageHandler}
-          className="w-20 h-20"
+          className="w-20 h-20 overflow-hidden rounded-full cursor-pointer"
         />
       )}
       {!!localUrl?.length && (
-        <div>
+        <div className="absolute bottom-0 right-[-12px] w-[18px] h-[18px]">
           {isLoading ? (
-            <>Loading...</>
+            <GoogleSpinner />
           ) : (
             <DropdownMenu>
-              <DropdownMenuTrigger>
-                
+              <DropdownMenuTrigger className="outline-none">
+                <PenSquare color="hsl(var(--primary))" size={"17"} strokeWidth={2.5} />
               </DropdownMenuTrigger>
               <DropdownMenuContent>
                 <DropdownMenuLabel>Edit Image</DropdownMenuLabel>

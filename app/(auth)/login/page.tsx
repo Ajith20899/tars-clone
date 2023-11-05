@@ -2,6 +2,8 @@
 
 import React, { useState } from "react";
 
+import { useRouter } from "next/navigation";
+
 import { Eye, EyeOff } from "lucide-react";
 
 import { Label } from "@/components/ui/label";
@@ -10,15 +12,18 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 
-import ImageFallBack from "@/library/image";
+import ImageFallBack from "@/app/_library/image";
 
 import { validatePassword } from "@/validation";
 
-import AuthLayout from "../(common)";
+import AuthLayout from "../(common)/AuthLayout";
 
 import { AuthLoginContext, AuthLoginStages } from "./context";
+import TwoStepVerification from "../(common)/TwoStepVerification";
 
 export default function Login() {
+  const { push } = useRouter();
+
   const [authLoginStage, setAuthLoginStage] = useState(
     AuthLoginStages.LOGIN_FORM
   );
@@ -33,6 +38,7 @@ export default function Login() {
     password: "",
     username: "",
   });
+  const [otpModalOpened, setOtpModalOpened] = useState(false);
 
   const inputHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     setLoginDetails({
@@ -143,7 +149,6 @@ export default function Login() {
       >
         <form className="flex flex-col gap-3 mt-4">
           {/** username */}
-
           <Input
             name="username"
             type="text"
@@ -157,7 +162,7 @@ export default function Login() {
 
           {/** password */}
 
-          <div className="relative grid items-center w-full max-w-sm gap-2 mt-1">
+          <div className="relative grid items-center w-full max-w-sm gap-2 mt-2">
             <Label htmlFor="password">Password</Label>
             <div className="relative">
               <Input
@@ -205,16 +210,21 @@ export default function Login() {
                 Remember me
               </Label>
             </div>
-            <Label className="text-xs cursor-pointer text-primary">
+            <Label
+              className="text-xs cursor-pointer text-primary"
+              onClick={() => push("/forgot_password")}
+            >
               Forgot password?
             </Label>
           </div>
 
           {/** submit btn */}
-
-          <Button className="w-full mt-5 rounded-full" onClick={submitHandler}>
-            Sign in
-          </Button>
+          
+          <TwoStepVerification
+          title="Sign in"
+            subTitle={`Thanks for keeping your account secure. check your Email : Exapmle@gmail.com`}
+            submitHandler={submitHandler}
+          />
           <Button variant={"outline"} className="w-full rounded-full">
             <ImageFallBack src="/google.svg" alt="google" className="w-4 h-4" />
             <span className="ml-2">Sign in with Google</span>
@@ -227,11 +237,11 @@ export default function Login() {
           </a>
 
           {/** footer */}
-          <footer className="flex items-center justify-center mt-10 space-x-2">
+          <footer className="flex items-center justify-center mt-10 space-x-2 td:mt-auto">
             <Label htmlFor="terms" className="text-xs">
               Don't have an account?
             </Label>
-            <Badge className="p-0 cursor-pointer" variant={"ghost"}>
+            <Badge className="p-0 cursor-pointer" variant={"ghost"} onClick={() => push(`/signup`)}>
               Sign up here
             </Badge>
           </footer>

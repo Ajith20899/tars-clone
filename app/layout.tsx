@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
 import { cn } from "@/lib/utils";
-import NavBar from "@/app/(navbar)";
 import { ThemeProvider } from "@/components/theme";
 
 import "./globals.css";
@@ -28,8 +27,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="h-full w-full grid grid-cols-[3rem_1fr] p-3 md:grid-cols-[0fr_1fr]">
-            <NavBar />
+          <div className="h-full w-full grid grid-cols-[1fr]">
             {children}
           </div>
         </ThemeProvider>
