@@ -24,6 +24,7 @@ export default function FavoriteCategory() {
       <div className="grid justify-between w-full grid-cols-2 gap-5 mt-5">
         {categories.map((d) => (
           <div
+            key={d}
             onClick={() => setSelectedCategory(d)}
             className={cn(
               "relative cursor-pointer aspect-square rounded-xl border border-borderColor p-3 flex flex-col gap-3 justify-center items-center hover:border-primary hover:bg-primary/5",

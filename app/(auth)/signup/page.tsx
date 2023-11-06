@@ -165,7 +165,7 @@ export default function Signup() {
               type={!eyeOpened ? "password" : "text"}
               id="password"
               placeholder="Password"
-              className="pr-10"
+              inputClassName="pr-10"
               value={signupDetails.password}
               regularInput
               onChange={inputHandler}

@@ -7,8 +7,6 @@ import { PenSquare } from "lucide-react";
 import ImageFallBack from "@/app/_library/image";
 import { cn } from "@/lib/utils";
 
-import { useIsMobile } from "@/hooks/useIsMobile";
-
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -23,14 +21,12 @@ import { GoogleSpinner } from "@/app/_library/loader";
 interface IAvatarEditProps {
   url: string;
   isLoading?: boolean;
-  imageHandler: (file?: File) => void;
+  imageHandler?: (file?: File) => void;
   className?: string;
 }
 
 export default function AvatarEdit(props: IAvatarEditProps) {
   const { url, className, isLoading, imageHandler } = props;
-
-  const isMobile = useIsMobile();
 
   const [isOptionsOpen, setIsOptionsOpen] = useState(false);
   const [localUrl, setLocalUrl] = useState(url);
@@ -70,7 +66,7 @@ export default function AvatarEdit(props: IAvatarEditProps) {
 
     input.onchange = (e: any) => {
       let url = URL.createObjectURL(e.target.files[0]);
-      imageHandler(e.target.files[0]);
+      imageHandler?.(e.target.files[0]);
       setLocalUrl(url);
     };
 
@@ -79,7 +75,7 @@ export default function AvatarEdit(props: IAvatarEditProps) {
 
   const removeImageHandler = () => {
     setLocalUrl("");
-    imageHandler();
+    imageHandler?.();
   };
 
   return (

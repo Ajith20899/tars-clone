@@ -4,6 +4,8 @@ import React, { FocusEvent, MouseEvent, ChangeEvent, useState } from "react";
 
 import { useRouter } from "next/navigation";
 
+import { Eye, EyeOff, ArrowLeft } from "lucide-react";
+
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
@@ -11,7 +13,7 @@ import { Label } from "@/components/ui/label";
 import AuthLayout from "../(common)/AuthLayout";
 
 import { validatePassword } from "@/validation";
-import { Eye, EyeOff } from "lucide-react";
+
 import { cn } from "@/lib/utils";
 
 const list = [{
@@ -95,8 +97,7 @@ export default function ResetPassword() {
     <AuthLayout
       title="Reset Password"
       subTitle="Enter your registered email below to request a password reset."
-      needBackIcon
-      clickHandler={() => push(`/login`)}
+      backIcon={<ArrowLeft onClick={() => push(`/login`)} className="cursor-pointer mb-5 ml-[-4px]" />}
     >
       {list.map((d, index) => (
         <div
@@ -111,7 +112,7 @@ export default function ResetPassword() {
               type={!eyeOpened.password ? "password" : "text"}
               id={d.key}
               placeholder={d.content}
-              className="pr-10"
+              inputClassName="pr-10"
               value={passwordDetails[`${d}`]}
               regularInput
               onChange={inputHandler}

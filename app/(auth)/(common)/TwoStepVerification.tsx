@@ -6,8 +6,6 @@ import { Label } from "@/components/ui/label";
 
 import { cn } from "@/lib/utils";
 
-import { useIsMobile } from "@/hooks/useIsMobile";
-
 import OtpInput from "@/app/_library/otp";
 import Popup from "@/app/_library/popup";
 
@@ -52,10 +50,7 @@ export default function TwoStepVerification({
     // Handle the completed OTP (e.g., send it to the server)
     setOtpDetails(otp);
   };
-
-  console.log("title ", title);
   
-
   const commonElements = useMemo(
     () => (
       <div className="relative grid items-center w-full max-w-sm gap-2 my-2 md:my-5">
@@ -68,7 +63,7 @@ export default function TwoStepVerification({
           className="mt-1"
         />
         <p className="mt-2 text-xs">
-          Didn't receive the OTP?
+          {`Didn't receive the OTP?`}
           <span
             ref={spanRef}
             className={cn(

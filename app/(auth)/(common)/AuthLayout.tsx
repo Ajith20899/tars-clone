@@ -1,26 +1,25 @@
-import React, { MouseEventHandler } from "react";
-import { ArrowLeft } from "lucide-react";
+import React from "react";
 
 import { cn } from "@/lib/utils";
+
+import UdcSvg from "@/public/svgr/Udc";
 
 import ImageFallBack from "@/app/_library/image";
 
 export default function AuthLayout({
   title,
   subTitle,
-  needBackIcon,
+  backIcon,
   children,
   className,
-  clickHandler,
   headerClassName,
 }: {
   title: string;
   subTitle?: string;
-  needBackIcon?: boolean;
+  backIcon?: React.ReactNode;
   children?: React.ReactNode;
   className?: string;
   headerClassName?: string;
-  clickHandler?: MouseEventHandler<SVGElement>;
 }) {
   return (
     <div
@@ -29,12 +28,10 @@ export default function AuthLayout({
         className
       )}
     >
-      <ImageFallBack
-        src={"/udc.svg"}
-        alt="udc"
+      <UdcSvg 
         className="w-12 h-8 mx-auto mb-8 td:mb-2"
       />
-      {needBackIcon && <ArrowLeft onClick={clickHandler} className="cursor-pointer mb-5 ml-[-4px]" />}
+      {backIcon}
       <h1 className={cn("text-lg font-semibold text-textPrimary", headerClassName)}>{title}</h1>
       {subTitle && <small>{subTitle}</small>}
       {children}

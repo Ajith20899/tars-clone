@@ -4,6 +4,8 @@ import React, { MouseEvent, ChangeEvent, useState } from "react";
 
 import { useRouter } from "next/navigation";
 
+import { ArrowLeft } from "lucide-react";
+
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 
@@ -67,11 +69,10 @@ export default function ForgotPassword() {
       title="OTP Verification"
       subTitle={`We have sent a Verification code to your registered
       email ${email}`}
-      needBackIcon
-      clickHandler={() => setOtpDetails({
+      backIcon={<ArrowLeft onClick={() => setOtpDetails({
         open: false,
         value: '',
-      })}
+      })} className="cursor-pointer mb-5 ml-[-4px]" />}
     >
       <OtpInput numberOfInputs={6} onComplete={handleOtpComplete} className="mt-4" />
 
@@ -83,8 +84,7 @@ export default function ForgotPassword() {
     <AuthLayout
       title="Forgot Password"
       subTitle="Enter your registered email below to request a password reset."
-      needBackIcon
-      clickHandler={() => push(`/login`)}
+      backIcon={<ArrowLeft onClick={() => push(`/login`)} className="cursor-pointer mb-5 ml-[-4px]" />}
     >
       <Input
         name="email"

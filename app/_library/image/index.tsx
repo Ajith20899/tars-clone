@@ -46,4 +46,6 @@ const ImageFallBack = React.forwardRef(
   }
 );
 
+ImageFallBack.displayName = "Image";
+
 export default ImageFallBack;

@@ -17,9 +17,9 @@ import ImageFallBack from "@/app/_library/image";
 import { validatePassword } from "@/validation";
 
 import AuthLayout from "../(common)/AuthLayout";
+import TwoStepVerification from "../(common)/TwoStepVerification";
 
 import { AuthLoginContext, AuthLoginStages } from "./context";
-import TwoStepVerification from "../(common)/TwoStepVerification";
 
 export default function Login() {
   const { push } = useRouter();
@@ -38,7 +38,7 @@ export default function Login() {
     password: "",
     username: "",
   });
-  const [otpModalOpened, setOtpModalOpened] = useState(false);
+  // const [otpModalOpened, setOtpModalOpened] = useState(false);
 
   const inputHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     setLoginDetails({
@@ -171,7 +171,7 @@ export default function Login() {
                 type={!eyeOpened ? "password" : "text"}
                 id="password"
                 placeholder="Password"
-                className="pr-10"
+                inputClassName="pr-10"
                 value={loginDetails.password}
                 regularInput
                 onChange={inputHandler}
@@ -239,7 +239,7 @@ export default function Login() {
           {/** footer */}
           <footer className="flex items-center justify-center mt-10 space-x-2 td:mt-auto">
             <Label htmlFor="terms" className="text-xs">
-              Don't have an account?
+              {`Don't have an account?`}
             </Label>
             <Badge className="p-0 cursor-pointer" variant={"ghost"} onClick={() => push(`/signup`)}>
               Sign up here
