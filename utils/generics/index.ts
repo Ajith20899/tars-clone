@@ -1,6 +1,6 @@
 import cookies from 'js-cookie';
-import { ChannelTypes } from 'redux/chat/constants';
-import { Cookies } from 'utils/cookie/types';
+// import { ChannelTypes } from 'redux/chat/constants';
+import { Cookies } from '@/utils/cookie/types';
 
 export const isLoggedInUser = (userEkey: string) => {
     return userEkey === cookies.get(Cookies.USER_EKEY);
@@ -19,10 +19,10 @@ export const getChannelType = (channelId: string) => {
     try {
         if (channelId.length > 0) {
             if (channelId.includes('pc_')) {
-                return ChannelTypes.PRIVATE;
+                // return ChannelTypes.PRIVATE;
             }
             if (channelId.includes('gc_')) {
-                return ChannelTypes.GROUP;
+                // return ChannelTypes.GROUP;
             }
             return '';
         }

@@ -76,10 +76,15 @@ module.exports = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: 0 },
         },
+        "placeholderShimmer": {
+          from: { backgroundPosition: "-1200px 0" },
+          to: { backgroundPosition: "1200px 0" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "placeholderShimmer": "placeholderShimmer 2s linear infinite",
       },
     },
   },

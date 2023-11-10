@@ -21,20 +21,26 @@ import {
 } from "@/components/ui/popover";
 
 export default function Dropdown({
+  label,
   list,
   value,
+  search,
+  className,
   selectHandler
 }: {
   list: Record<"value" | "label", string>[];
   value: string;
   selectHandler: (s: string) => void;
+  className?: string;
+  search?: boolean;
+  label?: string;
 }) {
   const [open, setOpen] = React.useState(false);
   // const [value, setValue] = React.useState("");
 
   return (
-    <div className="flex flex-col gap-2 w-full">
-      <Label>Dropdown</Label>
+    <div className={cn("flex flex-col gap-2 w-full", className)}>
+      {label && <Label>{label}</Label>}
       <Popover open={open} onOpenChange={setOpen}>
         <PopoverTrigger className={cn("px-3 text-textSecondary font-normal hover:text-textSecondary hover:bg-transparent", value.length && "text-textPrimary hover:text-textPrimary")} asChild>
           <Button
@@ -51,7 +57,9 @@ export default function Dropdown({
         </PopoverTrigger>
         <PopoverContent className="w-[var(--radix-popper-anchor-width)] p-0">
           <Command>
+            {search &&
             <CommandInput placeholder="Search..." />
+}
             <CommandEmpty>No value found.</CommandEmpty>
             <CommandGroup>
               {list.map((d) => (
@@ -62,14 +70,15 @@ export default function Dropdown({
                     selectHandler(currentValue === value ? "" : currentValue);
                     setOpen(false);
                   }}
+                  className="justify-between cursor-pointer"
                 >
+                  {d.label}
                   <Check
                     className={cn(
-                      "mr-2 h-4 w-4",
+                      "ml-2 h-4 w-4",
                       value === d.value ? "opacity-100" : "opacity-0"
                     )}
                   />
-                  {d.label}
                 </CommandItem>
               ))}
             </CommandGroup>

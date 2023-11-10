@@ -20,6 +20,7 @@ import AuthLayout from "../(common)/AuthLayout";
 
 import { ISignupDetails, SignupStages } from "./types";
 import TwoStepVerification from "../(common)/TwoStepVerification";
+import PasswordInput from "@/app/_library/password";
 
 export default function Signup() {
   const { push } = useRouter();
@@ -156,44 +157,16 @@ export default function Signup() {
 
         {/** password */}
 
-        <div className="relative grid items-center w-full max-w-sm gap-2 mt-1">
-          <Label htmlFor="password">Password</Label>
-          <div className="relative">
-            <Input
-              onBlur={passwordBlurHandler}
-              name="password"
-              type={!eyeOpened ? "password" : "text"}
-              id="password"
-              placeholder="Password"
-              inputClassName="pr-10"
-              value={signupDetails.password}
-              regularInput
-              onChange={inputHandler}
-            />
-            <div className="absolute top-0 right-0 flex items-center w-8 h-full">
-              {eyeOpened ? (
-                <Eye
-                  onClick={() => setEyeOpened(false)}
-                  className="cursor-pointer"
-                  size={"18"}
-                  color="grey"
-                />
-              ) : (
-                <EyeOff
-                  onClick={() => setEyeOpened(true)}
-                  className="cursor-pointer"
-                  size={"18"}
-                  color="grey"
-                />
-              )}
-            </div>
-          </div>
-          {formError.password && (
-            <small className="absolute bottom-[-20px] right-0 text-xs text-red-500">
-              {formError.password}
-            </small>
-          )}
-        </div>
+        <PasswordInput 
+          value={signupDetails.password}
+          changeHandler={inputHandler}
+          error={formError.password}
+          passwordBlurHandler={passwordBlurHandler}
+          inputClassName="pr-10"
+          name="password"
+          placeholder="Password"
+          regularInput
+        />
 
         {/** phone */}
 
