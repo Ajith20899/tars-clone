@@ -2,21 +2,16 @@
 
 import React, { useEffect, useRef, useState } from "react";
 
-import { PenSquare } from "lucide-react";
-
-import ImageFallBack from "@/app/_library/image";
-import { cn } from "@/lib/utils";
 
 import {
-  DropdownMenu,
-  DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
+import { cn } from "@/lib/utils";
+
+import ImageFallBack from "@/app/_library/image";
 import { GoogleSpinner } from "@/app/_library/loader";
+import Popup from "@/app/_library//popup";
 
 interface IAvatarEditProps {
   url: string;
@@ -101,27 +96,22 @@ export default function AvatarEdit(props: IAvatarEditProps) {
           {isLoading ? (
             <GoogleSpinner />
           ) : (
-            <DropdownMenu>
-              <DropdownMenuTrigger className="outline-none">
-                <PenSquare color="hsl(var(--primary))" size={"17"} strokeWidth={2.5} />
-              </DropdownMenuTrigger>
-              <DropdownMenuContent>
-                <DropdownMenuLabel>Edit Image</DropdownMenuLabel>
-                <DropdownMenuSeparator />
-                <DropdownMenuItem
-                  className="cursor-pointer"
-                  onClick={uploadImageHandler}
-                >
-                  Change
-                </DropdownMenuItem>
-                <DropdownMenuItem
-                  className="cursor-pointer"
-                  onClick={removeImageHandler}
-                >
-                  Delete
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
+            <Popup
+              title="Edit Image"
+            >
+              <DropdownMenuItem
+                className="cursor-pointer"
+                onClick={uploadImageHandler}
+              >
+                Change
+              </DropdownMenuItem>
+              <DropdownMenuItem
+                className="cursor-pointer"
+                onClick={removeImageHandler}
+              >
+                Delete
+              </DropdownMenuItem>
+            </Popup>
           )}
         </div>
       )}

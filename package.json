@@ -9,6 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@aws-amplify/api": "^5.0.29",
+    "@aws-amplify/auth": "^5.3.3",
+    "@aws-amplify/core": "^5.1.12",
+    "@aws-amplify/pubsub": "^5.1.12",
     "@radix-ui/react-avatar": "^1.0.4",
     "@radix-ui/react-checkbox": "^1.0.4",
     "@radix-ui/react-dialog": "^1.0.5",
@@ -18,10 +22,13 @@
     "@radix-ui/react-select": "^2.0.0",
     "@radix-ui/react-slot": "^1.0.2",
     "@types/react-svg": "^5.0.0",
+    "axios": "^1.6.1",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
     "cmdk": "^0.2.0",
     "fs.promises": "^0.1.2",
+    "idb": "^7.1.1",
+    "js-cookie": "^3.0.5",
     "lucide-react": "^0.291.0",
     "next": "14.0.1",
     "next-themes": "^0.2.1",
@@ -33,6 +40,7 @@
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
+    "@types/js-cookie": "^3.0.6",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

@@ -1,0 +1,17 @@
+{
+    "authSelections": "userPoolOnly",
+    "resourceName": "udc",
+    "serviceType": "imported",
+    "region": "us-east-1",
+    "usernameAttributes": ["email", "phone_number"],
+    "requiredAttributes": ["email", "phone_number"],
+    "passwordPolicyMinLength": 8,
+    "passwordPolicyCharacters": [
+        "Requires Lowercase",
+        "Requires Uppercase",
+        "Requires Numbers",
+        "Requires Symbols"
+    ],
+    "mfaConfiguration": "OFF",
+    "mfaTypes": []
+}

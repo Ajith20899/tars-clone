@@ -52,6 +52,7 @@ export default function PersonalInfo({ isEdit }: { isEdit: boolean }) {
               !!userDetails[d.name] && (
                 <Input
                   className="w-[300px] md:w-full"
+                  inputClassName="border-transparent bg-backgroundShade text-textPrimary"
                   key={d.name}
                   label={d.title}
                   name={d.name}

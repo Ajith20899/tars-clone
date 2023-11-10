@@ -7,7 +7,7 @@ import { Label } from "@/components/ui/label";
 import { cn } from "@/lib/utils";
 
 import OtpInput from "@/app/_library/otp";
-import Popup from "@/app/_library/popup";
+import Modal from "@/app/_library/modal";
 
 export default function TwoStepVerification({
   title,
@@ -81,7 +81,7 @@ export default function TwoStepVerification({
   );
 
   return (
-    <Popup
+    <Modal
       triggererName={title}
       title={"Two-step verification"}
       subTitle={subTitle}
@@ -90,6 +90,6 @@ export default function TwoStepVerification({
       clickHandler={submitHandler}
     >
       {commonElements}
-    </Popup>
+    </Modal>
   );
 }

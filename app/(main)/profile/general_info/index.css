@@ -1,0 +1,9 @@
+.form-wrapper>div {
+    width: 300px;
+}
+
+@media (max-width: 768px) {
+    .form-wrapper>div {
+        width: 100%;
+    }
+}

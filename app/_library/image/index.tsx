@@ -1,6 +1,6 @@
 "use client";
 
-import React, { ForwardedRef } from "react";
+import React, { SyntheticEvent, ForwardedRef } from "react";
 import Image from "next/image";
 
 import { cn } from "@/lib/utils";
@@ -28,16 +28,17 @@ const ImageFallBack = React.forwardRef(
     // const imageProps = isLocal ? await LocalImage(src) : await RemoteImage(src);
 
     return (
-      <div className={cn("relative", className)} ref={ref}>
+      <div className={cn("relative rounded-full overflow-hidden", className)} ref={ref}>
         <Image
           // src={imageProps.src ? src : 'no-image'}
           src={src}
           alt={alt}
           fill
           priority={priority}
-          sizes="50vw"
+          sizes="(max-width: 768px) 100vw, 50vw"
           loading={loading}
           onClick={onClick}
+          onError={(eve: SyntheticEvent<HTMLImageElement>) => (eve.target as HTMLImageElement).src = '/user.png'}
           // placeholder="blur"
           // blurDataURL={imageProps.src}
         />

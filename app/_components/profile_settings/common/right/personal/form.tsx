@@ -7,9 +7,16 @@ import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
-import { personalInfoDetails } from "@/app/_components/profile_settings/constants";
+import {
+  MarketsCategories,
+  personalInfoDetails,
+} from "@/app/_components/profile_settings/constants";
 import { personalValidation } from "@/app/_components/profile_settings/validation";
+
 import { MultiSelect } from "@/app/_library/multiSelect";
+import Dropdown from "@/app/_library/dropdown";
+
+import "./index.css";
 
 export default function FormComp() {
   let data = {
@@ -19,7 +26,7 @@ export default function FormComp() {
     createdAt: null,
     username: "name",
     userPrivacyType: "public",
-    preferredMarkets: [""],
+    preferredMarkets: [],
     country: "india",
     fullname: "fullname",
     emailId: "ajith@gmail.com",
@@ -89,9 +96,9 @@ export default function FormComp() {
     }));
   };
 
-  // const multiSelectHandler = (data: any, _list: any) => {
-  //   onChangeEvent(data, "preferredMarkets");
-  // };
+  const multiSelectHandler = (data: any) => {
+    onChangeEvent(data, "preferredMarkets");
+  };
 
   const saveHandler = async () => {
     try {
@@ -132,31 +139,46 @@ export default function FormComp() {
   };
 
   return (
-    <form>
-      {personalInfoDetails.slice(0, 4).map((d) => {
-        let name: string = d.name;
-        return (
-          <React.Fragment key={name}>
-            {name === "preferredMarkets" ? (
-              <MultiSelect />
-            ) : name === "userPrivacyType" ? (
-              <MultiSelect />
-            ) : (
-              <Input
-                type={name === "phone" ? "number" : "text"}
-                label={d.title}
-                name={name}
-                placeholder={d.placeholder}
-                value={(userDetails[name] || "") as string}
-                onChange={(e) => onChangeEvent(e.target.value, name)}
-                error={(errorMsg as any)[d.name]}
-              />
-            )}
-          </React.Fragment>
-        );
-      })}
-      <div className="flex gap-3 mt-4">
-        <Button className="w-24" variant={"secondary"} onClick={closeHandler}>
+    <form className="mt-10 max-w-[940px]">
+      <div className="flex flex-wrap gap-5 form-wrapper">
+        {personalInfoDetails.slice(0, 4).map((d) => {
+          let name: string = d.name;
+          return (
+            <React.Fragment key={name}>
+              {name === "preferredMarkets" ? (
+                <MultiSelect
+                  list={MarketsCategories}
+                  defaultSelects={
+                    (userDetails[name] || "") as {
+                      label: string;
+                      value: string;
+                    }[]
+                  }
+                  placeholder="Select markets..."
+                  selectHandler={multiSelectHandler}
+                />
+              ) : name === "userPrivacyType" ? (
+                // <Dropdown 
+                //   list={}
+                // />
+                <></>
+              ) : (
+                <Input
+                  type={name === "phone" ? "number" : "text"}
+                  label={d.title}
+                  name={name}
+                  placeholder={d.placeholder}
+                  value={(userDetails[name] || "") as string}
+                  onChange={(e) => onChangeEvent(e.target.value, name)}
+                  error={(errorMsg as any)[d.name]}
+                />
+              )}
+            </React.Fragment>
+          );
+        })}
+      </div>
+      <div className="flex gap-3 mt-6">
+        <Button className="w-24" variant={"outline"} onClick={closeHandler}>
           {"Cancel"}
         </Button>
         <Button

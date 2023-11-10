@@ -47,8 +47,10 @@ body {
   } */
 
   :root.light {
-    --textPrimary: 0 0% 0%;
-    --textSecondary: 231 6% 44%;
+    --box-shadow: 5px 5px 10px #ededef, -5px -5px 10px #fbfbfd;
+
+    --textPrimary: 0 0% 5.1%;
+    --textSecondary: 230.77 5.78% 44.12%;
 
     --background: 0 0% 100%;
     --backgroundShade: 240 10% 96%;
@@ -60,7 +62,7 @@ body {
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 3.9%;
 
-    --primary: 201.47deg 76% 49.02%;
+    --primary: 201.47 76% 49.02%;
     --primary-foreground: 0 0% 98%;
 
     --secondary: 233 10% 66%;
@@ -122,15 +124,17 @@ body {
   }
 
   :root.dark {
-    --textPrimary: 0 0% 100%;
-    --textSecondary: 0 0% 61.57%;
+    --box-shadow: 5px 5px 10px #0c0c0c, -5px -5px 10px #272727;
 
-    --background: 0 0% 0%;
-    --backgroundShade: 199.2 86.21% 5.69%;
+    --textPrimary: 0 0% 100%;
+    --textSecondary: 198.67 3.48% 52.34%;
+
+    --background: 0 0% 9.4%;
+    --backgroundShade: 0 0% 5.1%;
     --foreground: 0 0% 3.9%;
 
     --border: 0 0% 30.2%;
-    --lightBorder: 0deg 0% 14.9%;
+    --lightBorder: 0 0% 14.9%;
 
     --card: 0 0% 100%;
     --card-foreground: 0 0% 3.9%;
@@ -138,7 +142,7 @@ body {
     --popover: 0 0% 0%;
     --popover-foreground: 0 0% 3.9%;
 
-    --primary: 201.47deg 76% 49.02%;
+    --primary: 201.47 76% 49.02%;
     --primary-foreground: 0 0% 98%;
 
     --secondary: 233 10% 66%;
@@ -159,6 +163,7 @@ body {
 
 @layer base {
   * {
+    scrollbar-gutter: stable;
     /* @apply border-border; */
   }
 

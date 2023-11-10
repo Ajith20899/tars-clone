@@ -14,10 +14,20 @@ const FollowersAndFollowing = dynamic(
   () => import("../common/right/following")
 );
 
-export default function DesktopProfile({ paramsIds }: { paramsIds: string[] }) {
+export default function DesktopProfile({
+  paramsIds,
+  searchParams,
+}: {
+  paramsIds: string[];
+  searchParams: {
+    category: string;
+    type: string;
+    status: string;
+  };
+}) {
   let category = paramsIds?.[0];
 
-  if(!category?.length) return <></>;
+  if (!category?.length) return <></>;
 
   const elementHandle = () => {
     switch (paramsIds?.[0]) {
@@ -34,7 +44,7 @@ export default function DesktopProfile({ paramsIds }: { paramsIds: string[] }) {
       default:
         return <>None</>;
     }
-  };  
+  };
 
   const titleNameHandle = () => {
     switch (category) {
@@ -57,7 +67,7 @@ export default function DesktopProfile({ paramsIds }: { paramsIds: string[] }) {
     <main className="grid grid-cols-[300px_1fr] gap-3">
       <aside className="p-5 rounded-xl bg-background">
         <h2 className="font-semibold text-textPrimary">Profile</h2>
-        <Setting />
+        <Setting category={category} />
       </aside>
       <div className="rounded-xl bg-background">
         <h3 className="p-4 font-semibold border-b border-lightBorder text-textPrimary">

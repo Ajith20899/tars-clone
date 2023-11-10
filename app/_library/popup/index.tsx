@@ -1,93 +1,48 @@
-"use client";
+import React from "react";
 
-import React, { MouseEventHandler } from "react";
+import { PenSquare } from "lucide-react";
 
-import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
+
 import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
-import {
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetFooter,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet";
-
-import { useIsMobile } from "@/hooks/useIsMobile";
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 export default function Popup({
-  triggererName,
-  title,
-  subTitle,
-  btnName,
-  clickHandler,
   children,
-  disabled,
-  loading,
+  trigger,
+  title,
+  className,
 }: {
-  triggererName: string;
-  title: string;
-  subTitle: string;
-  btnName?: string;
-  clickHandler?: MouseEventHandler<HTMLButtonElement>;
-  disabled?: boolean;
-  loading?: boolean;
   children: React.ReactNode;
+  title?: string;
+  trigger?: React.ReactNode;
+  className?: string;
 }) {
-  
-  const isMobile = useIsMobile();
-
-  return isMobile ? (
-    <Sheet>
-      <SheetTrigger asChild>
-        <Button className="w-full mt-5 rounded-full">{triggererName}</Button>
-      </SheetTrigger>
-      <SheetContent side={"bottom"}>
-        <SheetHeader>
-          <SheetTitle>{title || "Two-step verification"}</SheetTitle>
-          <SheetDescription>{subTitle}</SheetDescription>
-        </SheetHeader>
-        {children}
-        {btnName && (
-          <SheetFooter>
-            <Button
-              className="w-full mt-5"
-              type="submit"
-              onClick={clickHandler}
-              disabled={disabled}
-            >
-              {btnName || "Save changes"}
-            </Button>
-          </SheetFooter>
+  return (
+    <DropdownMenu>
+      <DropdownMenuTrigger className={cn("outline-none", className)}>
+        {trigger || (
+          <PenSquare
+            color="hsl(var(--primary))"
+            size={"17"}
+            strokeWidth={2.5}
+          />
         )}
-      </SheetContent>
-    </Sheet>
-  ) : (
-    <Dialog>
-      <DialogTrigger asChild>
-        <Button className="w-full mt-5 rounded-full">{triggererName}</Button>
-      </DialogTrigger>
-      <DialogContent className="w-96 sm:max-w-[425px] rounded-lg">
-        <DialogHeader className="text-left">
-          <DialogTitle>{title || "Two-step verification"}</DialogTitle>
-          <DialogDescription>{subTitle}</DialogDescription>
-        </DialogHeader>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent className="rounded-[10px]">
+        {title && (
+          <>
+            <DropdownMenuLabel>{title || "Edit Image"}</DropdownMenuLabel>
+            <DropdownMenuSeparator />
+          </>
+        )}
         {children}
-        <DialogFooter className="mt-4">
-          <Button type="submit" onClick={clickHandler} disabled={disabled}>
-            {btnName || "Save changes"}
-          </Button>
-        </DialogFooter>
-      </DialogContent>
-    </Dialog>
+      </DropdownMenuContent>
+    </DropdownMenu>
   );
 }

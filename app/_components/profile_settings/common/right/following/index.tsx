@@ -1,13 +1,20 @@
-"use client";
+import { profileUrls } from "@/utils/api/urls";
+import { getRequest } from "@/utils/api/httpClient";
 
-import { useRouter } from "next/navigation";
+import Main from "./main";
 
-export default function FollowersAndFollowing({
+
+export default async function FollowersAndFollowing({
   isFollowers,
 }: {
   isFollowers?: boolean;
 }) {
-  const { push } = useRouter();
+  let url = isFollowers ? profileUrls.getFollowersURL : profileUrls.getFollowingUsersURL;
 
-  return <></>;
+  const { data, errorMessage } = await getRequest(url);
+
+  if(errorMessage) return <>E</>;
+
+  return <></>
+  // return <Main items={items} fetchHandler={fetchHandler} />;
 }

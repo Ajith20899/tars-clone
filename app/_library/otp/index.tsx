@@ -45,7 +45,7 @@ const handleInput = (e: ChangeEvent<HTMLInputElement>, index: number) => {
           value={otpValues[index]}
           onChange={(e) => handleInput(e, index)}
         //   onKeyDown={(e) => handleKeyDown(e, index)}
-          className="w-10 h-10 text-sm text-center border rounded text-textPrimary border-borderColor focus:outline-none focus:border-textSecondary"
+          className="w-10 h-10 text-sm text-center border rounded text-textPrimary border-borderColor focus:outline-none"
         />
       ))}
     </div>

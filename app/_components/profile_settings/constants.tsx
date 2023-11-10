@@ -15,7 +15,7 @@ export enum ProfileSettings {
 
 export const categories = [
   {
-    content: "General info",
+    content: "General Info",
     key: ProfileSettings.GENERALINFO,
     color: "hsl(var(--primary))",
     icon: <User color="#ffffff" size={"16px"} />,
@@ -48,14 +48,12 @@ export const categories = [
 
 export const MarketsCategories = [
   {
-    key: "stocks",
+    label: "Stocks",
     value: "stocks",
-    text: "Stocks",
   },
   {
-    key: "crypto",
     value: "crypto",
-    text: "Crypto",
+    label: "Crypto",
   },
 ];
 

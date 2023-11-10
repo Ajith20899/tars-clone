@@ -1,0 +1,45 @@
+{
+    "auth": {
+        "udc": {
+            "customAuth": false,
+            "dependsOn": [],
+            "providerPlugin": "awscloudformation",
+            "service": "Cognito",
+            "serviceType": "imported"
+        }
+    },
+    "parameters": {
+        "AMPLIFY_auth_udc_nativeClientId": {
+            "usedBy": [
+                {
+                    "category": "auth",
+                    "resourceName": "udc"
+                }
+            ]
+        },
+        "AMPLIFY_auth_udc_userPoolId": {
+            "usedBy": [
+                {
+                    "category": "auth",
+                    "resourceName": "udc"
+                }
+            ]
+        },
+        "AMPLIFY_auth_udc_userPoolName": {
+            "usedBy": [
+                {
+                    "category": "auth",
+                    "resourceName": "udc"
+                }
+            ]
+        },
+        "AMPLIFY_auth_udc_webClientId": {
+            "usedBy": [
+                {
+                    "category": "auth",
+                    "resourceName": "udc"
+                }
+            ]
+        }
+    }
+}

@@ -34,7 +34,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         autoComplete="off"
         type={type}
         className={cn(
-          "text-textPrimary flex h-10 w-full rounded-md border border-borderColor bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:border-textSecondary disabled:cursor-not-allowed disabled:opacity-50",
+          "text-textPrimary flex h-10 w-full rounded-md border border-borderColor bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none",
           inputClassName
         )}
         ref={ref}
@@ -43,7 +43,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     ) : (
       <div
         className={cn(
-          "items-center grid w-full max-w-sm gap-2 relative",
+          "flex flex-col w-full max-w-sm gap-2 relative",
           className
         )}
       >
@@ -56,7 +56,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           autoComplete="off"
           type={type}
           className={cn(
-            "text-textPrimary flex h-10 w-full rounded-md border border-borderColor bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:border-textSecondary disabled:cursor-not-allowed disabled:opacity-50",
+            "text-textPrimary flex h-10 w-full rounded-md border border-borderColor bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none",
             inputClassName
           )}
           ref={ref}
